@@ -12,4 +12,9 @@ class abc {
       s.o.p("method-xyzlocal");
    }
 
+   public int abc1() {
+      s.o.p("abc");
+      s.o.p("xyz");
+   }
+
 }
