@@ -1,4 +1,6 @@
 class abc{
-   PSVM(){}
+   PSVM(){
+      s.o.p("abc");
+   }
   
 }
