@@ -4,6 +4,7 @@ class abc{
     s.o.p("welcome");
     s.o.p("abc");
     s.o.p("xyz");
+    s.o.p("xyzlocal");
    }
   
 }
