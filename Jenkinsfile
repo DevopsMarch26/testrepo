@@ -18,6 +18,21 @@ pipeline {
                 // To run Maven on a Windows agent, use
                 // bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
+        }
+        stage('upload') {
+            steps {
+                nexusArtifactUploader(
+                  nexusVersion: 'nexus3',
+                  protocol: 'http',
+                  nexusUrl: 'localhost:8081',
+                  credentialsId: 'nexus',
+                  repository: 'maven-releases',
+                  artifacts: [
+                    [artifactId: 'my-app', classifier: '', file: 'target/my-app.jar', type: 'jar']
+                  ]
+                )
+
+            }
 
             post {
                 // If Maven was able to run the tests, even if some of the test
