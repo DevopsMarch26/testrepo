@@ -10,7 +10,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Get some code from a GitHub repository
-                git 'https://github.com/DevopsMarch26/testrepo.git'
+                git branch: 'main', url: 'https://github.com/DevopsMarch26/testrepo.git'
             }
         }
         stage('upload') {
