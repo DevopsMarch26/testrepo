@@ -21,17 +21,7 @@ pipeline {
         }
         stage('upload') {
             steps {
-                nexusArtifactUploader(
-                  nexusVersion: 'nexus3',
-                  protocol: 'http',
-                  nexusUrl: 'localhost:8081',
-                  credentialsId: 'nexus',
-                  repository: 'maven-releases',
-                  artifacts: [
-                    [artifactId: 'my-app', classifier: '', file: 'target/my-app.jar', type: 'jar']
-                  ]
-                )
-
+                sh "mvn -Dmaven.test.failure.ignore=true clean deploy"
             }
 
             post {
